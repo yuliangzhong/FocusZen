@@ -1,11 +1,14 @@
 import tkinter as tk
-import time
 from datetime import datetime, timedelta
+import os
 
 class FocusingApp:
     def __init__(self, root, schedule):
-        root.title("Focusing Time \U0001F3A7")
+        root.title("Focus Zen \U0001F3A7")
         root.attributes("-topmost", True)
+        icon_path = os.path.join(os.path.dirname(__file__), 'icon.png')
+        img = tk.PhotoImage(file=icon_path)
+        root.tk.call('wm', 'iconphoto', root._w, img)
 
         big_font = ("Helvetica", 36)
         small_font = ("Helvetica", 18)
@@ -106,6 +109,7 @@ class FocusingApp:
                 self.root_.after(100, self.update_countdown)  # Update every 0.1 second
             else:
                 self.label_bottom_left_.config(text="")
+                self.root_.after(100, self.update_countdown)
         else:
             self.label_bottom_left_.config(text="")
     

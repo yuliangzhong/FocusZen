@@ -1,7 +1,7 @@
 import re
 import tkinter as tk
 from datetime import datetime
-from FocusingApp import FocusingApp
+from FocusZen import FocusingApp
 
 def clean():
     pattern_timegap = r'\d+:\d+-\d+:\d+'
@@ -36,6 +36,7 @@ def clean():
 
     return schedule
 
+
 def main():
     schedule = clean()
     root = tk.Tk()
@@ -45,7 +46,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
-# To run in background:
-# python main.py & ps aux | grep "python main.py"
-# kill -9 <pid>
