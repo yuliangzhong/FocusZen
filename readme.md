@@ -1,3 +1,5 @@
+![Screenshot from 2023-08-23 11-12-27](https://github.com/yuliangzhong/FocusZen/assets/39910677/6570eec9-105c-4556-9bf0-6c61523f7f1d)
+
 # FocusZen: Boost Your Focus and Get Stuff Done!
 
 Attention is key to success. In a world full of distractions, staying focused matters more than ever. That's where FocusZen comes in – your go-to partner for better focus and getting things done.
@@ -14,5 +16,7 @@ FocusZen uses **three techniques** to help you focus better:
 
 ## How to install?
 ```git clone git@github.com:yuliangzhong/FocusZen.git```
+
 ```cd ~/FocusZen```
+
 ```./FocusZen.sh && exit```
