@@ -78,6 +78,8 @@ class FocusingApp:
         self.text_widget_ = tk.Text(root, height=1, font=small_font)
         self.text_widget_.bind('<KeyPress-Return>', lambda _: self.text_widget_.config(height=self.text_widget_.index('end').split('.')[0]))
         self.text_widget_.bind('<BackSpace>', lambda _: self.text_widget_.config(height=self.text_widget_.index('end-2c').split('.')[0]))
+        self.text_widget_.bind('<Button-1>', lambda _: self.text_widget_.config(insertbackground='black'))
+        self.text_widget_.bind('<Leave>', lambda _: self.text_widget_.config(insertbackground='white'))
         self.text_widget_.insert("1.0", "Notes:")
 
         self.countdown_checkbox_var_ = tk.IntVar()
