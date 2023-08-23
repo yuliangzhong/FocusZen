@@ -70,9 +70,10 @@ class FocusingApp:
         self.schedule_ = schedule
 
         self.label_top_ = tk.Label(root, text="", font=big_font)
-        self.label_middle_ = tk.Label(root, text="", font=small_font, wraplength=400)
+        self.label_middle_ = tk.Label(root, text="", font=small_font)
         self.label_bottom_left_ = tk.Label(root, text="", font=small_font)
         self.label_bottom_right_ = tk.Label(root, text="", font=small_font)
+        root.bind('<Configure>', lambda _: self.label_middle_.config(wraplength=self.root_.winfo_width() - 20))
 
         self.text_widget_ = tk.Text(root, height=1, font=small_font)
         self.text_widget_.bind('<KeyPress-Return>', lambda _: self.text_widget_.config(height=self.text_widget_.index('end').split('.')[0]))

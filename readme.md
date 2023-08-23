@@ -11,3 +11,8 @@ FocusZen uses **three techniques** to help you focus better:
 "Zen," deeply rooted in Chinese culture, represents a philosophy of balance and harmony. Drawing from ancient wisdom, it encapsulates the art of living in the present moment and embracing simplicity to attain a serene mind. Just as a tranquil garden reflects the essence of Zen, FocusZen captures this essence digitally. Rediscover the serenity of Chinese wisdom in a modern context with FocusZen – 
 
 **Where Distractions Dissolve, and Zen Emerges.**
+
+## How to install?
+```git clone git@github.com:yuliangzhong/FocusZen.git```
+```cd ~/FocusZen```
+```./FocusZen.sh && exit```
