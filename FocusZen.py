@@ -75,7 +75,7 @@ class FocusingApp:
         self.label_bottom_right_ = tk.Label(root, text="", font=small_font)
         root.bind('<Configure>', lambda _: self.label_middle_.config(wraplength=self.root_.winfo_width() - 20))
 
-        self.text_widget_ = tk.Text(root, height=1, font=small_font)
+        self.text_widget_ = tk.Text(root, width=self.root_.winfo_width(), height=1, font=small_font)
         self.text_widget_.bind('<KeyPress-Return>', lambda _: self.text_widget_.config(height=self.text_widget_.index('end').split('.')[0]))
         self.text_widget_.bind('<BackSpace>', lambda _: self.text_widget_.config(height=self.text_widget_.index('end-2c').split('.')[0]))
         self.text_widget_.bind('<Button-1>', lambda _: self.text_widget_.config(insertbackground='black'))
@@ -157,7 +157,7 @@ class FocusingApp:
                     self.label_top_.config(text=self.schedule_[self.id_][2])
                     self.label_middle_.config(text=self.schedule_[self.id_][3])
                 else:
-                    self.id_, self.time_before_, self.time_after_ = self.id_ + 1, self.schedule_[self.id_][1], self.schedule_[self.id_ + 1][0]
+                    self.id_, self.time_before_, self.time_after_ = self.id_, self.schedule_[self.id_][1], self.schedule_[self.id_ + 1][0]
                     self.label_top_.config(text="Coffee time now! \U00002615")
                     self.label_middle_.config(text="")
             return False
