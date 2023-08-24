@@ -2,6 +2,7 @@ import tkinter as tk
 from datetime import datetime, timedelta, time
 import os
 import re
+import platform
 
 
 # clean up and sort schedule from markdown file
@@ -61,10 +62,11 @@ class FocusingApp:
         icon_path = os.path.join(os.path.dirname(__file__), 'icon.png')
         img = tk.PhotoImage(file=icon_path)
         root.tk.call('wm', 'iconphoto', root._w, img)
+        system = platform.system()
 
         # Set up fonts
-        big_font = ("Helvetica", 24)
-        small_font = ("Helvetica", 15)
+        big_font = ("Ubuntu Regular", 24) if system == "Linux" else ("Roboto", 24)
+        small_font = ("Ubuntu Regular", 15) if system == "Linux" else ("Roboto", 15)
 
         self.root_ = root
         self.schedule_ = schedule
@@ -79,8 +81,10 @@ class FocusingApp:
         self.text_widget_.bind('<KeyPress-Return>', lambda _: self.text_widget_.config(height=self.text_widget_.index('end').split('.')[0]))
         self.text_widget_.bind('<BackSpace>', lambda _: self.text_widget_.config(height=self.text_widget_.index('end-2c').split('.')[0]))
         self.text_widget_.bind('<Button-1>', lambda _: self.text_widget_.config(insertbackground='black'))
-        self.text_widget_.bind('<Leave>', lambda _: self.text_widget_.config(insertbackground='white'))
+        self.text_widget_.bind('<FocusOut>', lambda _: self.text_widget_.config(insertbackground='white'))
         self.text_widget_.insert("1.0", "Notes:")
+        self.save_button_ = tk.Button(root, text="\U0001F4BE", width=1, height=1, font=small_font, command=self.save_to_file)
+        # if emoji won't show up, $ sudo apt install unifont
 
         self.countdown_checkbox_var_ = tk.IntVar()
         countdown_checkbox = tk.Checkbutton(root, text="Show Countdown", font=small_font, variable=self.countdown_checkbox_var_)
@@ -94,7 +98,8 @@ class FocusingApp:
         pomodoro_checkbox.grid(row=2, column=1, padx=(0, 5))
         self.label_bottom_left_.grid(row=3, column=0, pady=5)
         self.label_bottom_right_.grid(row=3, column=1, pady=5)
-        self.text_widget_.grid(row=4, column=0, columnspan=2, padx=10, pady=5, sticky="ew")
+        self.text_widget_.grid(row=4, column=0, columnspan=2, padx=(10, 60), pady=5, sticky="ew")
+        self.save_button_.grid(row=4, column=1, padx=(0, 10), pady=5, sticky="e")
         
         # Grid configuration
         for i in range(5):
@@ -188,6 +193,13 @@ class FocusingApp:
 
     def to_datetime(self, t):
         return datetime.combine(self.current_date_, t)
+
+
+    def save_to_file(self):
+        content = self.text_widget_.get("1.0", "end-1c")
+        current_date_and_time = datetime.now().strftime("%d/%m/%Y %H:%M:%S")
+        with open("notebook.txt", "a") as file:
+            file.write("[" + current_date_and_time + "] " + content + "\n")
     
 
 def main():
