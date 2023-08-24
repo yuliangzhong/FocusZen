@@ -1,22 +1,28 @@
-![Screenshot from 2023-08-23 11-12-27](https://github.com/yuliangzhong/FocusZen/assets/39910677/6570eec9-105c-4556-9bf0-6c61523f7f1d)
+<p align="center">
+  <img width="444" alt="Screenshot" src="https://github.com/yuliangzhong/FocusZen/assets/39910677/f9f6cba5-b08e-4bb6-aaae-62070a0bbbaf">
+</p>
 
-# FocusZen: Boost Your Focus and Get Stuff Done!
+# FocusZen: Amplify Your Focus. Amplify Your Productivity.
 
-Attention is key to success. In a world full of distractions, staying focused matters more than ever. That's where FocusZen comes in – your go-to partner for better focus and getting things done.
+In a world overflowing with distractions, staying focused matters more than ever. That's where FocusZen comes in – your ultimate tool to conquer tasks.
 
-FocusZen uses **three techniques** to help you focus better:
+### FocusZen uses **four techniques** to help you focus better:
 
-1. **Countdown Mastery**: Feel the power of countdowns. See your time visually, feel a rush to finish tasks, and keep your mind on track.
-2. **Pomodoro Technique**: Try the famous Pomodoro technique. Work focused, then take short breaks. Stay productive and keep a healthy work-life balance.
-3. **Idea Flash Notes**: Even good ideas can be distractions. Capture your bright thoughts effortlessly and put them down before they vanish. This way, FocusZen helps you stay on track while never losing those valuable flashes of insight.
+1. **Single Task Spotlight**: Define your daily schedule in .txt or .md files (e.g. example_schedule.md). FocusZen only displays you the current task, so you can focus on one thing at a time.
+2. **Countdown Mastery**: Feel the power of countdowns. See your remaining time visually, feel a rush to finish tasks, and keep your mind on track.
+3. **Pomodoro Tick**: Try the famous Pomodoro technique. 25 minutes of pure focus, followed by a 5-minute break. Stay productive and keep a healthy work-life balance.
+4. **Idea Capture**: Worried of losing inspirations, but feeling distractive of keeping them in mind? With FocusZen, Capture your bright thoughts effortlessly and put them down before they vanish. You can press "save" button to store them in a notebook, or just keep them in the text widget. Now, you stay on track again while never losing those valuable flashes of insight.
 
+### A note from the author:
 "Zen," deeply rooted in Chinese culture, represents a philosophy of balance and harmony. Drawing from ancient wisdom, it encapsulates the art of living in the present moment and embracing simplicity to attain a serene mind. Just as a tranquil garden reflects the essence of Zen, FocusZen captures this essence digitally. Rediscover the serenity of Chinese wisdom in a modern context with FocusZen – 
 
 **Where Distractions Dissolve, and Zen Emerges.**
 
-## How to install?
+## Easy to play!
 ```git clone git@github.com:yuliangzhong/FocusZen.git```
 
 ```cd ~/FocusZen```
 
-```./FocusZen.sh && exit```
+```./FocusZen.sh```
+
+Enjoy :)
