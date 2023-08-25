@@ -13,7 +13,7 @@ def clean():
     pattern_tasks = r'\{(.*?)\}'
     schedule = []
 
-    file_name = "example_schedule.md"
+    file_name = os.path.join(os.path.dirname(__file__), 'example_schedule.md')
 
     with open(file_name, "r") as f:
 

@@ -19,10 +19,20 @@ In a world overflowing with distractions, staying focused matters more than ever
 **Where Distractions Dissolve, and Zen Emerges.**
 
 ## Easy to play!
+1. Download the repo to local
 ```git clone git@github.com:yuliangzhong/FocusZen.git```
+2. Launch the app by simply running python
+```python3 FocusZen.py```
+* install dependencies if needed
 
-```cd ~/FocusZen```
-
-```./FocusZen.sh```
+## Advanced usage: Automatic launching after reboot
+1. Open terminal and type 
+```crontab -e```
+2. Add the following line to the end of the file
+```@reboot sleep 30 && DISPLAY=:0 /usr/bin/python3 /exact/path/to/FocusZen.py```
+* If it doesn't work properly, you can add ```>> /path/where/you/like/FocusZenOutputLog.txt 2>&1``` to the end of above command for debugging.
+3. `ctrl + o` to save, `enter`, and `ctrl + x` to exit
+4. Check if the cron job is added by 
+```crontab -l```
 
 Enjoy :)
