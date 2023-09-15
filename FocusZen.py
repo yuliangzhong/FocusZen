@@ -85,12 +85,19 @@ class FocusingApp:
         self.save_button_ = tk.Button(root, text="\U0001F4BE", width=1, height=1 if system else 2, font=small_font, command=self.save_to_file)
         # if emoji won't show up, $ sudo apt install unifont
 
+        self.top_left_button = tk.Button(root, text="\U00002196", width=1, height=1 if system else 2, font=small_font, command=self.move_to_top_left)
+        self.top_right_button = tk.Button(root, text="\U00002197", width=1, height=1 if system else 2, font=small_font, command=self.move_to_top_right)
+        self.bottom_right_button = tk.Button(root, text="\U00002198", width=1, height=1 if system else 2, font=small_font, command=self.move_to_bottom_right)
+        self.bottom_left_button = tk.Button(root, text="\U00002199", width=1, height=1 if system else 2, font=small_font, command=self.move_to_bottom_left)
+
         self.countdown_checkbox_var_ = tk.IntVar()
         countdown_checkbox = tk.Checkbutton(root, text="Show Countdown", font=small_font, variable=self.countdown_checkbox_var_)
         self.pomodoro_checkbox_var_ = tk.IntVar()
         pomodoro_checkbox = tk.Checkbutton(root, text="Pomodoro (Tomato Tick)", font=small_font, variable=self.pomodoro_checkbox_var_)
         
         # Grid layout
+        self.top_left_button.grid(row=0, column=0, padx=10, pady=5, sticky="w")
+        self.top_right_button.grid(row=0, column=1, padx=10, pady=5, sticky="e")
         self.label_top_.grid(row=0, column=0, columnspan=2, pady=5)
         self.label_middle_.grid(row=1, column=0, columnspan=2, pady=5)
         countdown_checkbox.grid(row=2, column=0, padx=(5, 0))
@@ -99,9 +106,11 @@ class FocusingApp:
         self.label_bottom_right_.grid(row=3, column=1, pady=5)
         self.text_widget_.grid(row=4, column=0, columnspan=2, padx=(10, 60), pady=5, sticky="ew")
         self.save_button_.grid(row=4, column=1, padx=(0, 10), pady=5, sticky="e")
-        
+        self.bottom_left_button.grid(row=5, column=0, padx=10, pady=5, sticky="w")
+        self.bottom_right_button.grid(row=5, column=1, padx=10, pady=5, sticky="e")
+
         # Grid configuration
-        for i in range(5):
+        for i in range(6):
             root.grid_rowconfigure(i, weight=1)
         for i in range(2):
             root.grid_columnconfigure(i, weight=1)
@@ -138,6 +147,24 @@ class FocusingApp:
         self.pomodoro_end_time_ = None
         self.loop()
 
+    def move_to_bottom_left(self):
+        self.root_.geometry(f"+{0}+{self.root_.winfo_screenheight() - self.root_.winfo_height()}")
+
+    def move_to_bottom_right(self):
+        screen_width = self.root_.winfo_screenwidth()
+        screen_height = self.root_.winfo_screenheight()
+        window_width = self.root_.winfo_width()
+        window_height = self.root_.winfo_height()
+
+        x = screen_width - window_width
+        y = screen_height - window_height
+        self.root_.geometry(f"+{x}+{y}")
+
+    def move_to_top_left(self):
+        self.root_.geometry(f"+{0}+{0}")
+
+    def move_to_top_right(self):
+        self.root_.geometry(f"+{self.root_.winfo_screenwidth() - self.root_.winfo_width()}+{0}")
 
     def loop(self):
         current_time = datetime.now().time()

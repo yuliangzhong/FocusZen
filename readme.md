@@ -24,6 +24,8 @@ In a world overflowing with distractions, staying focused matters more than ever
 2. Launch the app by simply running python
 ```python3 FocusZen.py```
 * install dependencies if needed
+3. To get rid of terminal, you can run the app in background
+```nohup python3 /path/to/FocusZen.py > /dev/null 2>&1 &```
 
 ## Advanced usage: Automatic launching after reboot
 1. Open terminal and type 
@@ -34,5 +36,6 @@ In a world overflowing with distractions, staying focused matters more than ever
 3. `ctrl + o` to save, `enter`, and `ctrl + x` to exit
 4. Check if the cron job is added by 
 ```crontab -l```
+5. The idea notebook is stored in your home folder, named as `notebook.txt`
 
 Enjoy :)
